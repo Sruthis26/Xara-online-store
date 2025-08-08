@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAFE - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-yellow-400 min-h-screen flex flex-col">
+
+  <nav class="bg-yellow-500 px-6 py-4 flex justify-between items-center shadow-md">
+    <div class="text-white text-2xl font-bold cursor-pointer" onclick="location.href='home.html'">SAFE</div>
+  </nav>
+
+  <main class="flex-grow flex flex-col justify-center items-center px-6 max-w-md mx-auto">
+    <h2 class="text-yellow-300 text-3xl font-bold mb-6">Login</h2>
+    <form id="loginForm" class="w-full space-y-4 bg-yellow-900 p-6 rounded shadow-lg">
+      <input type="text" id="loginUser" placeholder="Username or Email" required
+        class="w-full px-3 py-2 rounded bg-yellow-50 text-black focus:outline-yellow-300"/>
+      <input type="password" id="loginPass" placeholder="Password" required
+        class="w-full px-3 py-2 rounded bg-yellow-50 text-black focus:outline-yellow-300"/>
+      <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 rounded transition">
+        Login
+      </button>
+    </form>
+  </main>
+
+  <footer class="bg-yellow-500 text-black text-center py-4 mt-auto">
+    &copy; 2025 SAFE NGO Platform
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const userInput = document.getElementById('loginUser').value.trim();
+      const password = document.getElementById('loginPass').value.trim();
+
+      let users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => (u.username.toLowerCase() === userInput.toLowerCase() || u.email.toLowerCase() === userInput.toLowerCase()) && u.password === password);
+
+      if(!user){
+        return alert('Invalid username/email or password!');
+      }
+
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      location.href = 'dashboard.html';
+    });
+  </script>
+
+</body>
+</html>

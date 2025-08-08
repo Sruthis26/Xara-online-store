@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XARA - Premium Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        .logo-font { font-family: 'Playfair Display', serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #fce7f3 0%, #e0e7ff 50%, #f3e8ff 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .slide-animation {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hero-slider {
+            height: 70vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .golden-bird {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #ffd700, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg border-b-2 border-pink-100 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="golden-bird">
+                        <span class="text-white text-xl">🦅</span>
+                    </div>
+                    <h1 class="logo-font text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">XARA</h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-gray-700 hover:text-pink-500 font-medium transition-colors" onclick="showPage('home')">Home</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-pink-500 font-medium transition-colors" onclick="showPage('about')">About Us</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-pink-500 font-medium transition-colors" onclick="showPage('contact')">Contact</a>
+                    <a href="#" class="nav-link text-gray-700 hover:text-pink-500 font-medium transition-colors" onclick="showPage('login')">Login</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <span class="absolute -top-2 -right-2 bg-pink-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">3</span>
+                        <button class="text-gray-700 hover:text-pink-500 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6H19"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-content">
+        <!-- Hero Section with Slider -->
+        <section class="hero-slider relative">
+            <div class="hero-slide active gradient-bg flex items-center">
+                <div class="container mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="slide-animation">
+                            <h2 class="text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                                Discover Your <span class="text-pink-500">Style</span>
+                            </h2>
+                            <p class="text-xl text-gray-600 mb-8">Premium fashion for the modern lifestyle. Curated collections that define elegance.</p>
+                            <button class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Shop Now
+                            </button>
+                        </div>
+                        <div class="fade-in">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Fashion Hero" class="rounded-2xl shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide" style="background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 50%, #f3e8ff 100%);">
+                <div class="container mx-auto px-4 flex items-center h-full">
+                    <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+                        <div>
+                            <h2 class="text-5xl font-bold text-gray-800 mb-6">New <span class="text-purple-500">Collection</span></h2>
+                            <p class="text-xl text-gray-600 mb-8">Fresh arrivals that set the trend. Be the first to own the latest styles.</p>
+                            <button class="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Explore
+                            </button>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=400&fit=crop" alt="New Collection" class="rounded-2xl shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Shop by Category</h3>
+                <div class="grid md:grid-cols-5 gap-6">
+                    <div class="category-card bg-white rounded-xl p-6 text-center card-hover border-2 border-pink-100 cursor-pointer" onclick="showCategory('men')">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-2xl">👔</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800">Men</h4>
+                    </div>
+                    
+                    <div class="category-card bg-white rounded-xl p-6 text-center card-hover border-2 border-pink-100 cursor-pointer" onclick="showCategory('women')">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-2xl">👗</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800">Women</h4>
+                    </div>
+                    
+                    <div class="category-card bg-white rounded-xl p-6 text-center card-hover border-2 border-pink-100 cursor-pointer" onclick="showCategory('kids')">
+                        <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-2xl">🧒</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800">Kids</h4>
+                    </div>
+                    
+                    <div class="category-card bg-white rounded-xl p-6 text-center card-hover border-2 border-pink-100 cursor-pointer" onclick="showCategory('skincare')">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-teal-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-2xl">🧴</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800">Skincare</h4>
+                    </div>
+                    
+                    <div class="category-card bg-white rounded-xl p-6 text-center card-hover border-2 border-pink-100 cursor-pointer" onclick="showCategory('footwear')">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-2xl">👟</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800">Footwear</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Featured Products</h3>
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6" id="featured-products">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Category Products Section -->
+    <div id="category-products" class="page-content hidden">
+        <div class="container mx-auto px-4 py-16">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-4xl font-bold text-gray-800" id="category-title">Products</h3>
+                <button onclick="showPage('home')" class="bg-gray-500 text-white px-6 py-2 rounded-full hover:bg-gray-600 transition-colors">
+                    ← Back to Home
+                </button>
+            </div>
+            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6" id="category-product-grid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Page -->
+    <div id="about-page" class="page-content hidden">
+        <div class="gradient-bg py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-5xl font-bold text-gray-800 mb-8">About XARA</h2>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        XARA represents the pinnacle of modern fashion, where elegance meets innovation. Founded with a vision to democratize premium fashion, we curate collections that speak to the sophisticated individual who values both style and substance.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8 mt-16">
+                        <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-pink-100">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-2xl">✨</span>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-4">Premium Quality</h4>
+                            <p class="text-gray-600">Every piece in our collection is carefully selected for its superior quality and craftsmanship.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-pink-100">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-2xl">🌟</span>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-4">Trendsetting Style</h4>
+                            <p class="text-gray-600">Stay ahead of the curve with our cutting-edge designs and fashion-forward collections.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-pink-100">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-2xl">💝</span>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-4">Customer First</h4>
+                            <p class="text-gray-600">Your satisfaction is our priority. We're committed to providing exceptional service and support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page-content hidden">
+        <div class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-5xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="gradient-bg rounded-2xl p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
+                                        <span class="text-white">📍</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Address</h4>
+                                        <p class="text-gray-600">Xara Fashions,near Xara studios,Mumbai,India/p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <span class="text-white">📞</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Phone</h4>
+                                        <p class="text-gray-600">+91 7356603559</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center">
+                                        <span class="text-white">✉️</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Email</h4>
+                                        <p class="text-gray-600">zarafashionistas@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-pink-100">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Message</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <input type="text" placeholder="Your Name" class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Your Email" class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <textarea placeholder="Your Message" rows="5" class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:outline-none transition-colors"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page-content hidden">
+        <div class="min-h-screen flex items-center justify-center gradient-bg py-12">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md border-4 border-pink-100">
+                <div class="text-center mb-8">
+                    <div class="golden-bird mx-auto mb-4">
+                        <span class="text-white text-2xl">🦅</span>
+                    </div>
+                    <h2 class="logo-font text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">XARA</h2>
+                    <p class="text-gray-600 mt-2">Welcome back to premium fashion</p>
+                </div>
+                
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Username</label>
+                        <input type="text" id="username" placeholder="Enter username" class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Password</label>
+                        <input type="password" id="password" placeholder="Enter password" class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:outline-none transition-colors">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                        Sign In
+                    </button>
+                </form>
+                
+                <div class="text-center mt-6">
+                    <p class="text-gray-600">New to XARA? 
+                        <a href="#" onclick="showPage('register')" class="text-pink-500 hover:text-pink-600 font-semibold">Register</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="register-page" class="page-content hidden">
+        <div class="min-h-screen flex items-center justify-center gradient-bg py-12">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md border-4 border-purple-100">
+                <div class="text-center mb-8">
+                    <div class="golden-bird mx-auto mb-4">
+                        <span class="text-white text-2xl">🦅</span>
+                    </div>
+                    <h2 class="logo-font text-3xl font-bold bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent">Join XARA</h2>
+                    <p class="text-gray-600 mt-2">Create your premium account</p>
+                </div>
+                
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Full Name</label>
+                        <input type="text" placeholder="Enter full name" class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" placeholder="Enter email" class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Username</label>
+                        <input type="text" placeholder="Choose username" class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Password</label>
+                        <input type="password" placeholder="Create password" class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Confirm Password</label>
+                        <input type="password" placeholder="Confirm password" class="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none transition-colors">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                        Create Account
+                    </button>
+                </form>
+                
+                <div class="text-center mt-6">
+                    <p class="text-gray-600">Already have an account? 
+                        <a href="#" onclick="showPage('login')" class="text-purple-500 hover:text-purple-600 font-semibold">Sign In</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard (After Login) -->
+    <div id="dashboard-page" class="page-content hidden">
+        <div class="bg-gray-50 min-h-screen">
+            <!-- Top Navigation for Dashboard -->
+            <div class="bg-white shadow-lg border-b-2 border-pink-100">
+                <div class="container mx-auto px-4 py-4">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-bold text-gray-800">Welcome to XARA Premium</h2>
+                        <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Navigation -->
+            <div class="bg-white shadow-sm border-b border-gray-200">
+                <div class="container mx-auto px-4">
+                    <div class="flex space-x-8 py-4">
+                        <button onclick="showDashboardCategory('offers')" class="dashboard-nav-btn text-pink-500 border-b-2 border-pink-500 pb-2 font-semibold">Special Offers</button>
+                        <button onclick="showDashboardCategory('men')" class="dashboard-nav-btn text-gray-600 hover:text-pink-500 pb-2 font-semibold">Men</button>
+                        <button onclick="showDashboardCategory('women')" class="dashboard-nav-btn text-gray-600 hover:text-pink-500 pb-2 font-semibold">Women</button>
+                        <button onclick="showDashboardCategory('kids')" class="dashboard-nav-btn text-gray-600 hover:text-pink-500 pb-2 font-semibold">Kids</button>
+                        <button onclick="showDashboardCategory('skincare')" class="dashboard-nav-btn text-gray-600 hover:text-pink-500 pb-2 font-semibold">Skincare</button>
+                        <button onclick="showDashboardCategory('footwear')" class="dashboard-nav-btn text-gray-600 hover:text-pink-500 pb-2 font-semibold">Footwear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Offers Section -->
+            <div id="offers-section" class="dashboard-section">
+                <div class="gradient-bg py-12">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-8">
+                            <h3 class="text-4xl font-bold text-gray-800 mb-4">🎉 Special Offers Just for You!</h3>
+                            <p class="text-xl text-gray-600">Exclusive deals on premium fashion items</p>
+                        </div>
+                        
+                        <!-- Sliding Offers -->
+                        <div class="offers-slider relative overflow-hidden rounded-2xl mb-12">
+                            <div class="offers-slide-container flex transition-transform duration-500" id="offers-slider">
+                                <div class="offers-slide min-w-full bg-gradient-to-r from-pink-400 to-purple-500 text-white p-12 text-center">
+                                    <h4 class="text-3xl font-bold mb-4">50% OFF Summer Collection</h4>
+                                    <p class="text-xl mb-6">Beat the heat with our coolest styles</p>
+                                    <button class="bg-white text-purple-500 px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all">Shop Now</button>
+                                </div>
+                                <div class="offers-slide min-w-full bg-gradient-to-r from-purple-400 to-pink-500 text-white p-12 text-center">
+                                    <h4 class="text-3xl font-bold mb-4">Buy 2 Get 1 FREE</h4>
+                                    <p class="text-xl mb-6">On all skincare products</p>
+                                    <button class="bg-white text-pink-500 px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all">Shop Now</button>
+                                </div>
+                                <div class="offers-slide min-w-full bg-gradient-to-r from-indigo-400 to-purple-500 text-white p-12 text-center">
+                                    <h4 class="text-3xl font-bold mb-4">Free Shipping Worldwide</h4>
+                                    <p class="text-xl mb-6">On orders above $100</p>
+                                    <button class="bg-white text-indigo-500 px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all">Shop Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6" id="dashboard-products">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample product data
+        const productData = {
+            men: [
+                { id: 1, name: "Classic Suit", price: "Rs 3000", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" },
+                { id: 2, name: "Casual Shirt", price: "Rs 2500", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=400&fit=crop" },
+                { id: 3, name: "Denim Jacket", price: "Rs 6000", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=400&fit=crop" },
+                { id: 4, name: "Sports Polo", price: "Rs 1500", image: "Polo Ralph Lauren Linen Shorts _ Shorts _ Harry Rosen.jpg" },
+                { id: 5, name: "Formal Blazer", price: "Rs 3000", image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=400&fit=crop" },
+                { id: 6, name: "Casual Chinos", price: "Rs1700", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&h=400&fit=crop" },
+                { id: 7, name: "Winter Coat", price: "Rs 6500", image: "sweater.jpg" }
+            ],
+            women: [
+                { id: 8, name: "Elegant Dress", price: "Rs 5000", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=400&fit=crop" },
+                { id: 9, name: "Silk Blouse", price: "Rs 4500", image: "silktop.jpg" },
+                { id: 10, name: "Maxi Skirt", price: " Rs 3200", image: "skirt.jpg" },
+                { id: 11, name: "Designer Handbag", price: "$3000", image: "designer.jpg" },
+                { id: 12, name: "Casual Jumpsuit", price: "$2100", image: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=300&h=400&fit=crop" },
+                { id: 13, name: "Evening Gown", price: "$1000", image: "gown.jpg" },
+                { id: 14, name: "Casual Cardigan", price: "$1700", image: "cardigan.jpg" }
+            ],
+            kids: [
+                { id: 15, name: "Cute T-Shirt", price: "Rs 1000", image: "kidsshirt.jpg" },
+                { id: 16, name: "Denim Overalls", price: "Rs 1700", image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=400&fit=crop" },
+                { id: 17, name: "Summer Dress", price: "Rs 2000", image: "summer.jpg" },
+                { id: 18, name: "Hoodie", price: "Rs 2460", image: "kidswin.jpg" },
+                { id: 19, name: "School Uniform", price: "Rs 1700", image: "kids_uniform.png" },
+                { id: 20, name: "Party Outfit", price: "Rs 2900", image: "party_kids.jpg" },
+                { id: 21, name: "Winter Jacket", price: "Rs 1900", image: "jacket.jpg" }
+            ],
+            skincare: [
+                { id: 22, name: "Vitamin C Serum", price: "RS 1000", image: "vitaminc.png" },
+                { id: 23, name: "Moisturizer", price: "Rs 500", image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=400&fit=crop" },
+                { id: 24, name: "Face Mask", price: "Rs 600 ", image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=400&fit=crop" },
+                { id: 25, name: "Sunscreen SPF 50", price: "Rs 800", image: "sun.png" },
+                { id: 26, name: "Eye Cream", price: " Rs 670", image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=400&fit=crop" },
+                { id: 27, name: "Cleanser", price: " Rs 400", image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=400&fit=crop" },
+                { id: 28, name: "Anti-Aging Cream", price: "Rs 1150", image: "night.png" }
+            ],
+            footwear: [
+                { id: 29, name: "Sneakers", price: "Rs 700", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=400&fit=crop" },
+                { id: 30, name: "High Heels", price: "Rs 860", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&h=400&fit=crop" },
+                { id: 31, name: "Casual Loafers", price: "Rs 1000 ", image: "loafers.jpg" },
+                { id: 32, name: "Boots", price: "Rs 1000", image: "boots.jpg" },
+                { id: 33, name: "Sandals", price: "Rs 510", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=300&h=400&fit=crop" },
+                { id: 34, name: "Running Shoes", price: "Rs 648", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=400&fit=crop" },
+                { id: 35, name: "Formal Shoes", price: "Rs 760", image: "formalshoes.jpg" }
+            ]
+        };
+
+        // Current page state
+        let currentPage = 'home';
+        let currentCategory = 'offers';
+        let isLoggedIn = false;
+        let heroSlideIndex = 0;
+        let offersSlideIndex = 0;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+            loadFeaturedProducts();
+            startHeroSlider();
+            
+            // Setup login form
+            document.getElementById('login-form').addEventListener('submit', handleLogin);
+        });
+
+        // Page navigation
+        function showPage(page) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(p => p.classList.add('hidden'));
+            
+            // Show selected page
+            const targetPage = document.getElementById(page + '-page');
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                currentPage = page;
+            }
+            
+            // Update navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-pink-500', 'border-b-2', 'border-pink-500');
+            });
+        }
+
+        // Category navigation
+        function showCategory(category) {
+            const categoryProducts = document.getElementById('category-products');
+            const homePage = document.getElementById('home-page');
+            
+            homePage.classList.add('hidden');
+            categoryProducts.classList.remove('hidden');
+            
+            document.getElementById('category-title').textContent = category.charAt(0).toUpperCase() + category.slice(1) + ' Collection';
+            loadCategoryProducts(category);
+        }
+
+        // Load featured products for home page
+        function loadFeaturedProducts() {
+            const container = document.getElementById('featured-products');
+            const featured = [
+                ...productData.men.slice(0, 2),
+                ...productData.women.slice(0, 2),
+                ...productData.kids.slice(0, 1),
+                ...productData.skincare.slice(0, 1),
+                ...productData.footwear.slice(0, 2)
+            ];
+            
+            container.innerHTML = featured.map(product => createProductCard(product)).join('');
+        }
+
+        // Load products for specific category
+        function loadCategoryProducts(category) {
+            const container = document.getElementById('category-product-grid');
+            const products = productData[category] || [];
+            
+            container.innerHTML = products.map(product => createProductCard(product)).join('');
+        }
+
+        // Create product card HTML
+        function createProductCard(product) {
+            return `
+                <div class="bg-white rounded-xl shadow-lg card-hover border-2 border-pink-100 overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">${product.name}</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">${product.price}</span>
+                            <button onclick="buyProduct(${product.id}, '${product.name}', '${product.price}')" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Handle product purchase
+        function buyProduct(id, name, price) {
+            if (!isLoggedIn) {
+                alert('Please login to make a purchase!');
+                showPage('login');
+                return;
+            }
+            
+            alert(`Added "${name}" (${price}) to your cart!`);
+        }
+
+        // Handle login
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'user1234' && password === 'xara26') {
+                isLoggedIn = true;
+                showPage('dashboard');
+                loadDashboard();
+                startOffersSlider();
+            } else {
+                alert('Invalid credentials! Use username: user1234, password: xara26');
+            }
+        }
+
+        // Load dashboard
+        function loadDashboard() {
+            showDashboardCategory('offers');
+        }
+
+        // Show dashboard category
+        function showDashboardCategory(category) {
+            currentCategory = category;
+            
+            // Update navigation
+            document.querySelectorAll('.dashboard-nav-btn').forEach(btn => {
+                btn.className = 'dashboard-nav-btn text-gray-600 hover:text-pink-500 pb-2 font-semibold';
+            });
+            event.target.className = 'dashboard-nav-btn text-pink-500 border-b-2 border-pink-500 pb-2 font-semibold';
+            
+            // Show/hide offers section
+            const offersSection = document.getElementById('offers-section');
+            if (category === 'offers') {
+                offersSection.classList.remove('hidden');
+                loadDashboardProducts('featured');
+            } else {
+                offersSection.classList.add('hidden');
+                loadDashboardProducts(category);
+            }
+        }
+
+        // Load dashboard products
+        function loadDashboardProducts(category) {
+            const container = document.getElementById('dashboard-products');
+            let products = [];
+            
+            if (category === 'featured') {
+                products = [
+                    ...productData.men.slice(0, 2),
+                    ...productData.women.slice(0, 2),
+                    ...productData.kids.slice(0, 1),
+                    ...productData.skincare.slice(0, 1),
+                    ...productData.footwear.slice(0, 2)
+                ];
+            } else {
+                products = productData[category] || [];
+            }
+            
+            container.innerHTML = products.map(product => createProductCard(product)).join('');
+        }
+
+        // Logout function
+        function logout() {
+            isLoggedIn = false;
+            showPage('home');
+        }
+
+        // Hero slider
+        function startHeroSlider() {
+            const slides = document.querySelectorAll('.hero-slide');
+            
+            setInterval(() => {
+                slides[heroSlideIndex].classList.remove('active');
+                heroSlideIndex = (heroSlideIndex + 1) % slides.length;
+                slides[heroSlideIndex].classList.add('active');
+            }, 5000);
+        }
+
+        // Offers slider
+        function startOffersSlider() {
+            const slider = document.getElementById('offers-slider');
+            
+            setInterval(() => {
+                offersSlideIndex = (offersSlideIndex + 1) % 3;
+                slider.style.transform = `translateX(-${offersSlideIndex * 100}%)`;
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
